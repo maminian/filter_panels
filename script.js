@@ -64,9 +64,9 @@ function get_tags(name,object){
 
 function filter() {
   // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
+  var input, query, panels, meta, txtValue;
   input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
+  query = input.value.toUpperCase();
 
   panels = document.getElementsByClassName("panel");
   
@@ -76,7 +76,7 @@ function filter() {
     
     if (meta) {
       txtValue = meta.textContent || meta.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      if (txtValue.toUpperCase().indexOf(query) > -1) {
         panels[i].style.display = "";
       } else {
         panels[i].style.display = "none";
