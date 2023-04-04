@@ -1,1 +1,4 @@
 python -m http.server
+
+MUST BE RUN IN THE SAME FOLDER AS INDEX.HTML
+BROWSER MUST BE OPEN AT localhost:8000
