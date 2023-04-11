@@ -8,6 +8,13 @@ $.ajax({
     var data = JSON.parse(response);
 
     var all_html = "";
+	var max_count = Object.keys(data).length;
+	var found_count = max_count;
+	
+	document.getElementById("totalCount").innerHTML=max_count;
+	document.getElementById("dynamicCount").innerHTML=max_count;
+	document.getElementById("dynamicCount").innerHTML="" + total_matches + " of " + max_count + " match...";
+	
     for (var key in data){
         var insertion = "";
         //console.log(data[key])
@@ -70,6 +77,9 @@ function filter() {
 
   panels = document.getElementsByClassName("panel");
   
+  var total_matches = 0;
+  var max_count = panels.length;
+  
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < panels.length; i++) {
     meta = panels[i].getElementsByClassName("metadata")[0];
@@ -78,9 +88,12 @@ function filter() {
       txtValue = meta.textContent || meta.innerText;
       if (txtValue.toUpperCase().indexOf(query) > -1) {
         panels[i].style.display = "";
+		total_matches += 1;
       } else {
         panels[i].style.display = "none";
       }
     }
   }
+  // Update the number of results found.
+  document.getElementById("dynamicCount").innerHTML = total_matches + " of " + max_count + " match...";
 }

@@ -21,3 +21,8 @@ div.square {
 div.metadata{
   display: none;
 }
+
+span.dynamic {
+	font-weight: bold;
+	font-size: 24px;
+}
