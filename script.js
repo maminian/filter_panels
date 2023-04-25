@@ -85,10 +85,13 @@ function filter() {
     if (meta) {
       txtValue = meta.textContent || meta.innerText;
       if (txtValue.toUpperCase().indexOf(query) > -1) {
-        panels[i].style.display = "";
+        //panels[i].style.display = "";
+        panels[i].classList.remove('panel-nonmatching')
+        panels[i].classList.add('panel-matching')
 		total_matches += 1;
       } else {
-        panels[i].style.display = "none";
+        panels[i].classList.add('panel-nonmatching')
+        panels[i].classList.remove('panel-matching')
       }
     }
   }
