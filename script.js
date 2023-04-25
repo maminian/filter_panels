@@ -9,10 +9,8 @@ $.ajax({
 
     var all_html = "";
 	var max_count = Object.keys(data).length;
-	var found_count = max_count;
+	var total_matches = max_count;
 	
-	document.getElementById("totalCount").innerHTML=max_count;
-	document.getElementById("dynamicCount").innerHTML=max_count;
 	document.getElementById("dynamicCount").innerHTML="" + total_matches + " of " + max_count + " match...";
 	
     for (var key in data){
