@@ -78,22 +78,32 @@ function filter() {
   var total_matches = 0;
   var max_count = panels.length;
   
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < panels.length; i++) {
-    meta = panels[i].getElementsByClassName("metadata")[0];
-    
-    if (meta) {
-      txtValue = meta.textContent || meta.innerText;
-      if (txtValue.toUpperCase().indexOf(query) > -1) {
-        //panels[i].style.display = "";
-        panels[i].classList.remove('panel-nonmatching')
-        panels[i].classList.add('panel-matching')
-		total_matches += 1;
-      } else {
-        panels[i].classList.add('panel-nonmatching')
-        panels[i].classList.remove('panel-matching')
-      }
+  if (query.length == 0){
+    // remove both sets of tags and/or do nothing.
+    for (i = 0; i < panels.length; i++) {
+        panels[i].classList.remove('panel-nonmatching');
+        panels[i].classList.remove('panel-matching');
     }
+    total_matches = panels.length;
+  }
+  else {
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < panels.length; i++) {
+        meta = panels[i].getElementsByClassName("metadata")[0];
+        
+        if (meta) {
+          txtValue = meta.textContent || meta.innerText;
+          if (txtValue.toUpperCase().indexOf(query) > -1) {
+            //panels[i].style.display = "";
+            panels[i].classList.remove('panel-nonmatching')
+            panels[i].classList.add('panel-matching')
+	        total_matches += 1;
+          } else {
+            panels[i].classList.add('panel-nonmatching')
+            panels[i].classList.remove('panel-matching')
+          }
+        }
+      }
   }
   // Update the number of results found.
   document.getElementById("dynamicCount").innerHTML = total_matches + " of " + max_count + " match...";
