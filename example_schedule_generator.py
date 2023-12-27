@@ -20,10 +20,10 @@ suffixes = ['...What Is It Good For?', ': Past, Present, and Future',
 
 #
 def gen_json(   filename='fake_conference.json',
-                num_sessions=5, 
+                num_sessions=6, 
                 talks_per_session=4, 
-                num_parallel=3,
-                minutes_per_talk=30):
+                num_parallel=4,
+                minutes_per_talk=20):
     
     to_json = {}
     
@@ -64,4 +64,6 @@ def gen_json(   filename='fake_conference.json',
     return to_json
 #
 
+if __name__ == "__main__":
+    _ = gen_json()
 
