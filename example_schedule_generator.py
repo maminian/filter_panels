@@ -65,5 +65,12 @@ def gen_json(   filename='fake_conference.json',
 #
 
 if __name__ == "__main__":
-    _ = gen_json()
+    jobj = gen_json()
+    
+    import pandas
+    
+    df = pandas.DataFrame(jobj)
+    df = df.T
+    
+    df.to_csv('fake_conference.csv', index=None)
 
