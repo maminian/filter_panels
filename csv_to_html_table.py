@@ -20,7 +20,7 @@ def pivot_agg(x):
     return session_prefix + td_contents + session_suffix
 
 df_p = df.pivot_table(
-    values='name', 
+    values='name', # TODO: can I build up a list of multiple fields here?
     columns='parallel_track', 
     index='session_num', 
     aggfunc=pivot_agg
